@@ -8,61 +8,104 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
     />
+    <style>
+      /* Additional styles for Facebook profile section */
+      .profile-section {
+        margin: 40px 0;
+        padding: 20px;
+        background: #f8f9fa;
+        border-radius: 8px;
+      }
+      .profile-link {
+        display: inline-block;
+        background: #1877f2;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin: 10px 0;
+        font-weight: bold;
+      }
+      .profile-link:hover {
+        background: #166fe5;
+      }
+      .warning {
+        background: #fff4e6;
+        padding: 15px;
+        border-left: 4px solid #ffa500;
+        margin: 20px 0;
+      }
+    </style>
     <title>Cieverose College, Inc.</title>
     <meta
       name="description"
-      content="High-performance HTML based website template."
+      content="Cieverose College official website with school information and Facebook profile details."
     />
   </head>
   <body>
     <h1>Cieverose College, Incorporated</h1>
     <p>
-      This template 
-      <a href="https://www.facebook.com/profile.php?id=100069140122435">CCI</a>.
+      Official website of Cieverose College. Connect with us on 
+      <a href="https://www.facebook.com/profile.php?id=100069140122435">Facebook</a>.
     </p>
+    
     <h3>SCHOOL PHILOSOPHY</h3>
     <p>
       To serve God is to Serve Others.
     </p>
+    
     <h3>SCHOOL VISION</h3>
     <p>
       To be a leading educational institution that provides high quality training, knowledge, skills and 
       services in all areas specially in technical education industry.
     </p>
+    
     <h3>SCHOOL MISSION</h3>
     <p>
       To empower youth by providing quality education which centers in the development of totality of a person in physical,
-       emotional, spiritual, intellectual, and life skills necessary to prepare them to be contributory  individuals 
+       emotional, spiritual, intellectual, and life skills necessary to prepare them to be contributory individuals 
        in their communities and achieve success in their personal lives.
     </p>
-    <h2>Advanced routing configuration</h2>
+    
+    <div class="profile-section">
+      <h2>Our Facebook Profile Information</h2>
+      <a href="https://www.facebook.com/profile.php?id=100069140122435" class="profile-link">Visit Our Facebook Page</a>
+      <p>Profile ID: 100069140122435</p>
+      
+      <h3>About Our Facebook Profile</h3>
+      <p>This is the official Facebook profile of Cieverose College, Incorporated. We use this page to share updates, announcements, and connect with our students and community.</p>
+      
+      <h3>How to Connect With Us</h3>
+      <ol>
+        <li><strong>Like our page:</strong> Click the "Like" button on our Facebook page</li>
+        <li><strong>Follow us:</strong> Get notifications when we post updates</li>
+        <li><strong>Message us:</strong> Send us inquiries through Facebook Messenger</li>
+      </ol>
+      
+      <div class="warning">
+        <h3>Official Account Notice</h3>
+        <p>Please be aware that this is our only official Facebook profile. Beware of fake accounts pretending to represent our institution.</p>
+      </div>
+      
+      <h3>What You'll Find On Our Page</h3>
+      <ul>
+        <li>School announcements and events</li>
+        <li>Admission information</li>
+        <li>Photo galleries of campus activities</li>
+        <li>Student achievements</li>
+        <li>Contact information for inquiries</li>
+      </ul>
+    </div>
+    
+    <h2>Contact Information</h2>
     <p>
-      Vercel gives you a variety of ways to configure the routing of your
-      website. For example, adding redirects, rewrites, or headers to your page.
-      While you can use <code>vercel.json</code> to define these through JSON,
-      you can also express your routing configuration as code using
-      <a href="https://vercel.com/docs/concepts/functions/edge-middleware"
-        >Vercel Edge Middleware</a
-      >.
+      For more information about our school, please visit our Facebook page or contact us directly.
     </p>
-    <p>
-      Middleware runs before the
-      <a href="https://vercel.com/docs/concepts/edge-network/caching"
-        >Vercel Edge Network Cache</a
-      >, so you can configure routing exactly as your application needs. For
-      example, this template uses <code>middleware.js</code> defined in the root
-      of the repository to add additional security headers to the site:
-    </p>
+    
     <pre><code>referrer-policy: origin-when-cross-origin
 strict-transport-security: max-age=31536000; includeSubDomains; preload
 x-content-type-options: nosniff
 x-dns-prefetch-control: on
 x-frame-options: DENY</code></pre>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/functions/edge-middleware"
-        >Vercel Edge Middleware</a
-      >.
-    </p>
   </body>
 </html>
