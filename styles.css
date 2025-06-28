@@ -236,7 +236,7 @@
         /* ===== Enhanced Hero Section ===== */
         .hero {
             background: linear-gradient(rgba(26, 95, 154, 0.8), rgba(13, 59, 102, 0.9)), 
-                        url('cieverose..jpg');
+                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -464,20 +464,49 @@
 
         .core-values li {
             margin-bottom: var(--space-sm);
-            padding-left: 1.5em;
+            padding: var(--space-md);
+            padding-left: 2em; /* Increased padding to prevent overlap */
             text-indent: -1.5em;
             background: var(--primary-light);
-            padding: var(--space-md);
             border-radius: var(--radius-sm);
-            border-left: 2px solid var(--secondary-color);
+            border-left: 3px solid var(--secondary-color);
+            position: relative;
         }
 
-        .core-values li::first-letter {
-            text-decoration: underline;
+        .core-values li::before {
+            content: attr(data-first-letter);
             font-weight: bold;
             color: var(--secondary-color);
-            margin-right: 2px;
+            margin-right: 0.5em;
             font-size: 1.2em;
+            position: absolute;
+            left: 0.5em;
+        }
+
+        /* ===== School Goals List ===== */
+        .school-goals {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: var(--space-md);
+        }
+
+        .school-goals li {
+            margin-bottom: var(--space-sm);
+            padding: var(--space-sm) var(--space-md);
+            padding-left: 2em; /* Increased padding to prevent overlap */
+            text-indent: -1.5em;
+            background: var(--primary-light);
+            border-radius: var(--radius-sm);
+            border-left: 3px solid var(--accent-color);
+            position: relative;
+        }
+
+        .school-goals li::before {
+            content: '•';
+            color: var(--secondary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0.75em;
         }
 
         /* ===== Profile Section ===== */
