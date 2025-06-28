@@ -237,9 +237,13 @@
                     <div class="program-card-content">
                         <h3><i class="fas fa-map-marker-alt text-accent"></i> Campus Address</h3>
                         <address>
-                            <a href="https://maps.app.goo.gl/w731LH2qGnssscx37" target="_blank" rel="noopener">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=Cieverose+College+Camarin+Caloocan&travelmode=driving&dir_action=navigate" 
+                              target="_blank" 
+                              rel="noopener"
+                              id="directions-link">
                                 Lot 4 Block 51(1644) Ilang-Ilang Street<br>
                                 Camarin, Caloocan City
+                                <i class="fas fa-directions ml-2"></i>
                             </a>
                         </address>
                     </div>
@@ -316,6 +320,40 @@
     </footer>
 
     <script>
+      // Maps
+      
+        // Enhanced directions link with geolocation
+        document.getElementById('directions-link').addEventListener('click', function(e) {
+            // Only intercept if this is the main click (not middle mouse button, etc.)
+            if (e.button === 0) {
+                e.preventDefault();
+                
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                        function(position) {
+                            // User granted permission - use their location
+                            const lat = position.coords.latitude;
+                            const lng = position.coords.longitude;
+                            window.open(
+                                `https://www.google.com/maps/dir/?api=1&origin=${lat},${lng}&destination=Cieverose+College+Camarin+Caloocan&travelmode=driving&dir_action=navigate`,
+                                '_blank'
+                            );
+                        },
+                        function(error) {
+                            // User denied permission or error occurred - fall back to regular link
+                            if (error.code !== error.PERMISSION_DENIED) {
+                                console.error("Geolocation error:", error);
+                            }
+                            window.open(this.href, '_blank');
+                        }
+                    );
+                } else {
+                    // Geolocation not supported - fall back to regular link
+                    window.open(this.href, '_blank');
+                }
+            }
+            // For other click types (middle mouse, etc.), let the default behavior happen
+        });
         // Mobile menu toggle
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
             const navUl = document.querySelector('nav ul');
