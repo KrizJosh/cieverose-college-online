@@ -264,6 +264,11 @@ nav a:hover {
   box-shadow: var(--shadow-md);
 }
 
+.core-values li::first-letter {
+    text-decoration: underline;
+    font-weight: bold;
+    margin-right: 2px;
+}
 /* ===== Footer ===== */
 footer {
   background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-dark) 100%);
