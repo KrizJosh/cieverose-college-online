@@ -100,7 +100,7 @@
 
 
 
-        
+
 /* 
         h2::after {
             content: '';
@@ -829,7 +829,7 @@
         /* ===== Fixed Core Values List ===== */
         .core-values-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
             gap: var(--space-md);
             margin-bottom: var(--space-xl);
         }
