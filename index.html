@@ -5,150 +5,1020 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Cieverose College - Providing quality education since 2005">
     <script defer src="/_vercel/insights/script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <title>Cieverose College, Inc. | Quality Education</title>
+    <style>
+        /* ===== Enhanced Base Styles ===== */
+        :root {
+            /* Enhanced Color Scheme - Blue & Yellow Theme */
+            --primary-color: #1a5f9a; /* Deep blue */
+            --primary-dark: #0d3b66;
+            --primary-light: #e6f0fa;
+            --secondary-color: #f9c80e; /* Vibrant yellow */
+            --secondary-dark: #d9a908;
+            --accent-color: #ffde59; /* Light yellow */
+            --light-text: #ffffff;
+            --dark-text: #2c3e50;
+            --gray-text: #7f8c8d;
+            --light-bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --section-bg: #f0f7ff;
+            --success-color: #27ae60;
+            --warning-color: #f1c40f;
+            
+            /* Typography */
+            --font-main: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-heading: 'Montserrat', 'Arial Narrow', Arial, sans-serif;
+            --font-mono: 'Courier Prime', Consolas, monaco, 'Ubuntu Mono', monospace;
+            
+            /* Spacing */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2.5rem;
+            --space-xxl: 4rem;
+            
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            --radius-round: 50%;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --shadow-inset: inset 0 2px 4px rgba(0,0,0,0.05);
+            
+            /* Transitions */
+            --transition-fast: 0.15s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.45s ease;
+            
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%);
+        }
+
+        /* ===== Base Elements ===== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--light-bg);
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* ===== Typography ===== */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            line-height: 1.3;
+            color: var(--primary-dark);
+            margin-bottom: var(--space-md);
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-lg);
+        }
+
+        h2 {
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: var(--space-sm);
+            margin-top: var(--space-xl);
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        p {
+            margin-bottom: var(--space-md);
+            line-height: 1.7;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all var(--transition-fast);
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        strong {
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        blockquote {
+            border-left: 4px solid var(--secondary-color);
+            padding: var(--space-md) var(--space-lg);
+            margin: var(--space-lg) 0;
+            background-color: var(--primary-light);
+            font-style: italic;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        }
+
+        /* ===== Layout Components ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+            width: 100%;
+        }
+
+        .section {
+            padding: var(--space-xl) 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+        }
+
+        .section-title h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* ===== Navigation ===== */
+        nav {
+            background: var(--gradient-primary);
+            padding: var(--space-md) 0;
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            color: var(--light-text);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: var(--light-text);
+            font-weight: 600;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-normal);
+            white-space: nowrap;
+        }
+
+        nav a:hover {
+            background: rgba(249, 200, 14, 0.2); /* Yellow tint */
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        nav a.active {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light-text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* ===== Enhanced Hero Section ===== */
+        .hero {
+            background: linear-gradient(rgba(26, 95, 154, 0.8), rgba(13, 59, 102, 0.9)), 
+                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: var(--light-text);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: var(--space-xxl) var(--space-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, var(--light-bg));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--light-text);
+            margin-bottom: var(--space-md);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin: 0 auto var(--space-lg);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            max-width: 700px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            background-color: var(--secondary-color);
+            color: var(--dark-text);
+            padding: var(--space-md) var(--space-lg);
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all var(--transition-normal);
+            box-shadow: var(--shadow-md);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: var(--light-text);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            text-decoration: none;
+        }
+
+        .cta-button.secondary {
+            background-color: transparent;
+            color: var(--light-text);
+            border: 2px solid var(--light-text);
+        }
+
+        .cta-button.secondary:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--light-text);
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+
+        /* ===== Enhanced Cards ===== */
+        .programs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-lg);
+            margin: var(--space-xl) 0;
+        }
+
+        .program-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-normal);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border-top: 4px solid var(--secondary-color);
+            position: relative;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(26, 95, 154, 0.15);
+        }
+
+        .program-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .program-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .program-card-content {
+            padding: var(--space-lg);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .program-card h3 {
+            margin: 0 0 var(--space-sm);
+            color: var(--primary-dark);
+            font-size: 1.3rem;
+        }
+
+        .program-card p {
+            margin-bottom: var(--space-md);
+            flex-grow: 1;
+        }
+
+        .program-card ul {
+            margin-bottom: var(--space-md);
+            padding-left: var(--space-md);
+        }
+
+        .program-card li {
+            margin-bottom: var(--space-sm);
+            position: relative;
+        }
+
+        .program-card li::before {
+            content: '•';
+            color: var(--secondary-color);
+            font-weight: bold;
+            position: absolute;
+            left: -15px;
+        }
+
+        .program-card a {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-weight: 600;
+            margin-top: auto;
+            color: var(--primary-color);
+            transition: all var(--transition-fast);
+        }
+
+        .program-card a::after {
+            content: '→';
+            transition: transform var(--transition-fast);
+        }
+
+        .program-card a:hover::after {
+            transform: translateX(3px);
+        }
+
+        /* ===== Core Values List ===== */
+        .core-values {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: var(--space-md);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .core-values li {
+            margin-bottom: var(--space-sm);
+            padding-left: 1.5em;
+            text-indent: -1.5em;
+            background: var(--primary-light);
+            padding: var(--space-md);
+            border-radius: var(--radius-sm);
+            border-left: 3px solid var(--secondary-color);
+        }
+
+        .core-values li::first-letter {
+            text-decoration: underline;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-right: 2px;
+            font-size: 1.2em;
+        }
+
+        /* ===== Profile Section ===== */
+        .profile-section {
+            text-align: center;
+            margin: var(--space-xl) 0;
+            padding: var(--space-xl);
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--section-bg) 100%);
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--secondary-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23f9c80e' fill-opacity='0.1' d='M30,30 Q50,10 70,30 T90,50 Q70,70 50,90 T30,70 Q10,50 30,30 Z'/%3E%3C/svg%3E");
+            background-size: contain;
+            opacity: 0.3;
+        }
+
+        .profile-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 150px;
+            height: 150px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%231a5f9a' fill-opacity='0.1' d='M30,30 Q50,10 70,30 T90,50 Q70,70 50,90 T30,70 Q10,50 30,30 Z'/%3E%3C/svg%3E");
+            background-size: contain;
+            opacity: 0.3;
+        }
+
+        .profile-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            background: var(--secondary-color);
+            color: var(--dark-text);
+            padding: var(--space-md) var(--space-lg);
+            border-radius: 50px;
+            margin: var(--space-md) 0;
+            font-weight: bold;
+            transition: all var(--transition-normal);
+            box-shadow: var(--shadow-sm);
+            z-index: 1;
+            position: relative;
+        }
+
+        .profile-link:hover {
+            background: var(--secondary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+            color: var(--light-text);
+            padding: var(--space-xl) 0;
+            margin-top: var(--space-xl);
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        .footer-column h3 {
+            color: var(--secondary-color);
+            margin-bottom: var(--space-lg);
+            position: relative;
+            padding-bottom: var(--space-sm);
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary-color);
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column li {
+            margin-bottom: var(--space-sm);
+            line-height: 1.6;
+        }
+
+        .footer-column a {
+            color: rgba(255,255,255,0.8);
+            transition: color var(--transition-fast);
+        }
+
+        .footer-column a:hover {
+            color: var(--light-text);
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: var(--radius-round);
+            color: var(--light-text);
+            transition: all var(--transition-normal);
+        }
+
+        .social-links a:hover {
+            background: var(--secondary-color);
+            color: var(--dark-text);
+            transform: translateY(-3px);
+            text-decoration: none;
+        }
+
+        .footer-column form {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .footer-column input {
+            padding: var(--space-sm);
+            border: none;
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+        }
+
+        .footer-column button {
+            padding: var(--space-sm);
+            background: var(--secondary-color);
+            color: var(--dark-text);
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-weight: 600;
+            transition: background var(--transition-normal);
+        }
+
+        .footer-column button:hover {
+            background: var(--secondary-dark);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: var(--space-lg);
+            margin-top: var(--space-lg);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .copyright a {
+            color: rgba(255,255,255,0.7);
+            transition: color var(--transition-fast);
+        }
+
+        .copyright a:hover {
+            color: var(--light-text);
+        }
+
+        /* ===== Utility Classes ===== */
+        .text-center {
+            text-align: center;
+        }
+
+        .text-accent {
+            color: var(--secondary-color);
+        }
+
+        .bg-primary {
+            background-color: var(--primary-color);
+        }
+
+        .bg-secondary {
+            background-color: var(--secondary-color);
+        }
+
+        .mt-sm { margin-top: var(--space-sm); }
+        .mt-md { margin-top: var(--space-md); }
+        .mt-lg { margin-top: var(--space-lg); }
+        .mt-xl { margin-top: var(--space-xl); }
+
+        .mb-sm { margin-bottom: var(--space-sm); }
+        .mb-md { margin-bottom: var(--space-md); }
+        .mb-lg { margin-bottom: var(--space-lg); }
+        .mb-xl { margin-bottom: var(--space-xl); }
+
+        /* ===== Responsive Design ===== */
+        @media (max-width: 992px) {
+            :root {
+                --space-xl: 2rem;
+                --space-xxl: 3rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --space-md: 0.8rem;
+                --space-lg: 1.25rem;
+                --space-xl: 1.75rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--primary-dark);
+                flex-direction: column;
+                padding: var(--space-md);
+                box-shadow: var(--shadow-md);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav a {
+                display: block;
+                padding: var(--space-sm);
+            }
+            
+            .hero {
+                padding: 3rem var(--space-md);
+                background-attachment: scroll;
+                min-height: 90vh;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .programs {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-column h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            :root {
+                --space-md: 0.6rem;
+                --space-lg: 1rem;
+                --space-xl: 1.5rem;
+            }
+            
+            .hero {
+                padding: 2.5rem var(--space-md);
+                min-height: 80vh;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            h3 {
+                font-size: 1.3rem;
+            }
+            
+            .cta-button {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .core-values {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== Animations ===== */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
 </head>
 <body>
     <nav aria-label="Main navigation">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <!--
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="programs.html">Programs</a></li>
-            <li><a href="admissions.html">Admissions</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            -->
-            <li><a href="https://www.facebook.com/profile.php?id=100069140122435" target="_blank" rel="noopener">Facebook</a></li>
-        </ul>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-graduation-cap" style="font-size: 1.5rem;"></i>
+                <span>Cieverose College</span>
+            </a>
+            <button class="mobile-menu-btn" aria-expanded="false" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul>
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#programs"><i class="fas fa-book-open"></i> Programs</a></li>
+                <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=100069140122435" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </div>
     </nav>
     
     <header class="hero" role="banner">
-        <h1>Cieverose College, Incorporation</h1>
-        <p>Empowering students through quality education since 2010</p>
+        <div class="hero-content">
+            <h1>Empowering Futures at Cieverose College</h1>
+            <p>Providing quality education that combines academic excellence with practical skills development since 2010</p>
+            <div class="hero-buttons">
+                <a href="#programs" class="cta-button">
+                    <i class="fas fa-book-open"></i> Explore Programs
+                </a>
+                <a href="#contact" class="cta-button secondary">
+                    <i class="fas fa-phone-alt"></i> Contact Us
+                </a>
+            </div>
+        </div>
+        <a href="#welcome" class="scroll-down" aria-label="Scroll down">
+            <i class="fas fa-chevron-down"></i>
+        </a>
     </header>
     
     <main class="container">
-        <section class="section">
+        <section id="welcome" class="section">
             <h2>Welcome to Cieverose College</h2>
             <p>
                 Cieverose College is dedicated to providing high-quality education that combines academic excellence with practical skills development. 
                 Our institution fosters an environment of innovation, creativity, and lifelong learning.
             </p>
             
-            <article>
-                <h3>SCHOOL PHILOSOPHY</h3>
-                <p>To serve God is to Serve Others.</p>
+            <article class="mt-lg">
+                <h3><i class="fas fa-gem text-accent"></i> SCHOOL PHILOSOPHY</h3>
+                <p class="bg-primary-light p-3 rounded">"To serve God is to Serve Others."</p>
             </article>
             
-            <article>
-                <h3>SCHOOL VISION</h3>
+            <article class="mt-xl">
+                <h3><i class="fas fa-eye text-accent"></i> SCHOOL VISION</h3>
                 <p>
                     To be a leading educational institution that provides high quality training, knowledge, skills and 
                     services in all areas specially in technical education industry.
                 </p>
             </article>
             
-            <article>
-                <h3>SCHOOL MISSION</h3>
+            <article class="mt-xl">
+                <h3><i class="fas fa-bullseye text-accent"></i> SCHOOL MISSION</h3>
                 <p>
                     To empower youth by providing quality education which centers in the development of totality of a person in physical,
                     emotional, spiritual, intellectual, and life skills necessary to prepare them to be contributory individuals 
                     in their communities and achieve success in their personal lives.
                 </p>
             </article>
-            <article>
-                <h3>SCHOOL GOALS</h3>
-                <p>
-                    <ul>
-                        <li>Provide high-quality graduates that meet industry standards</li>
-                        <li>Foster holistic student development addressing physical, emotional, spiritual, intellectual, and life skills</li>
-                        <li>Empower youth to become responsible, productive, and contributing members of their communities</li>
-                        <li>Cultivate a learning environment rooted in strong faith, integrity, and respect for diversity</li>
-                        <li>Promote excellence and hard work among students, faculty, and staff</li>
-                        <li>Ensure continuous improvement in educational programs and services to maintain leadership in education</li>
-                        <li>Encourage love, respect, and understanding within the school community to build a harmonious environment</li>
-                        <li>Conduct research and extension services focused on community development</li>
-                    </ul>
-                </p>
+            
+            <article class="mt-xl">
+                <h3><i class="fas fa-flag text-accent"></i> SCHOOL GOALS</h3>
+                <ul class="core-values">
+                    <li>Provide high-quality graduates that meet industry standards</li>
+                    <li>Foster holistic student development addressing physical, emotional, spiritual, intellectual, and life skills</li>
+                    <li>Empower youth to become responsible, productive, and contributing members of their communities</li>
+                    <li>Cultivate a learning environment rooted in strong faith, integrity, and respect for diversity</li>
+                    <li>Promote excellence and hard work among students, faculty, and staff</li>
+                    <li>Ensure continuous improvement in educational programs and services to maintain leadership in education</li>
+                    <li>Encourage love, respect, and understanding within the school community to build a harmonious environment</li>
+                    <li>Conduct research and extension services focused on community development</li>
+                </ul>
             </article>
-            <article>
-                <h3>SCHOOL CORE VALUES</h3>
-                <h3>(S.H.I.E.L.D)</h3>
-                <p>
-                    <ul>
-                        <li>Strong Faith</li>
-                        <li>Hard work</li>
-                        <li>Integrity</li>
-                        <li>Excellence</li>
-                        <li>Love</li>
-                        <li>Diversity & Deference</li>
-                    </ul>
-                </p>
+            
+            <article class="mt-xl">
+                <h3><i class="fas fa-star text-accent"></i> SCHOOL CORE VALUES (S.H.I.E.L.D)</h3>
+                <div class="core-values">
+                    <li>Strong Faith</li>
+                    <li>Hard work</li>
+                    <li>Integrity</li>
+                    <li>Excellence</li>
+                    <li>Love</li>
+                    <li>Diversity & Deference</li>
+                </div>
             </article>
         </section>
         
-        <section class="section">
-            <h2>Our Senior High School Strands</h2>
+        <section id="programs" class="section bg-section">
+            <h2 class="text-center">Our Senior High School Strands</h2>
+            <p class="text-center mb-xl">Choose the path that aligns with your aspirations and career goals</p>
+            
             <div class="programs">
                 <article class="program-card">
                     <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="ICT students working on computers">
                     <div class="program-card-content">
-                        <h3>Information and Communication Technology (ICT)</h3>
+                        <h3><i class="fas fa-laptop-code text-accent"></i> Information and Communication Technology (ICT)</h3>
                         <p>Prepares students for careers in programming, animation, and computer systems servicing. Covers subjects like computer programming, web development, and networking fundamentals.</p>
                         <ul>
                             <li>Career paths: Programmer, Web Developer, IT Specialist</li>
                             <li>Specialized subjects: Programming, Animation, Computer Systems Servicing</li>
                             <li>NC II Certification opportunities</li>
                         </ul>
-                        <a href="programs.html#ict">Learn More</a>
+                        <a href="#">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </article>
                 
                 <article class="program-card">
                     <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="HE students cooking in kitchen">
                     <div class="program-card-content">
-                        <h3>Home Economics (HE)</h3>
+                        <h3><i class="fas fa-utensils text-accent"></i> Home Economics (HE)</h3>
                         <p>Focuses on livelihood skills in cookery, bread and pastry production, food and beverage services, tourism, and hospitality management.</p>
                         <ul>
                             <li>Career paths: Chef, Baker, Hotel/Restaurant Manager</li>
                             <li>Specialized subjects: Cookery, Food and Beverage Services, Tourism</li>
                             <li>Hands-on training in fully equipped kitchen labs</li>
                         </ul>
-                        <a href="programs.html#he">Learn More</a>
+                        <a href="#">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </article>
                 
                 <article class="program-card">
                     <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="HUMSS students in discussion">
                     <div class="program-card-content">
-                        <h3>Humanities and Social Sciences (HUMSS)</h3>
+                        <h3><i class="fas fa-book-reader text-accent"></i> Humanities and Social Sciences (HUMSS)</h3>
                         <p>Designed for students interested in liberal arts, education, journalism, and social sciences. Develops critical thinking and communication skills.</p>
                         <ul>
                             <li>Career paths: Teacher, Lawyer, Journalist, Psychologist</li>
                             <li>Specialized subjects: Creative Writing, Social Sciences, Philosophy</li>
                             <li>Strong preparation for college degrees in arts and humanities</li>
                         </ul>
-                        <a href="programs.html#humss">Learn More</a>
+                        <a href="#">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </article>
                 
                 <article class="program-card">
                     <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="ABM students analyzing data">
                     <div class="program-card-content">
-                        <h3>Accountancy, Business and Management (ABM)</h3>
+                        <h3><i class="fas fa-chart-line text-accent"></i> Accountancy, Business and Management (ABM)</h3>
                         <p>Focuses on business principles, financial management, and entrepreneurship. Prepares students for careers in business and accountancy.</p>
                         <ul>
                             <li>Career paths: Accountant, Entrepreneur, Business Manager</li>
                             <li>Specialized subjects: Business Math, Finance, Marketing</li>
                             <li>Real-world business simulations and case studies</li>
                         </ul>
-                        <a href="programs.html#abm">Learn More</a>
+                        <a href="#">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </article>
+                
                 <article class="program-card">
                     <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="GAS students in classroom">
                     <div class="program-card-content">
-                        <h3>General Academic Strand (GAS)</h3>
+                        <h3><i class="fas fa-graduation-cap text-accent"></i> General Academic Strand (GAS)</h3>
                         <p>Designed for students who are undecided on their college path, offering a broad range of subjects across different disciplines.</p>
                         <ul>
                             <li>Career paths: College preparation for any degree program</li>
@@ -157,67 +1027,114 @@
                             <li>Ideal for students exploring multiple career options</li>
                             <li>Strong foundation for liberal arts and sciences</li>
                         </ul>
-                        <a href="programs.html#gas">Learn More</a>
+                        <a href="#">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </article>
             </div>
         </section>
         
-        <section class="profile-section section">
-            <h2>Connect With Us</h2>
-            <p>Stay updated with our latest news, events, and announcements through our social media channels.</p>
+        <section id="about" class="profile-section section">
+            <h2>Why Choose Cieverose College?</h2>
+            <p>We provide a nurturing environment that fosters academic excellence, personal growth, and career readiness.</p>
+            
+            <div class="programs mt-lg">
+                <article class="program-card">
+                    <div class="program-card-content">
+                        <h3><i class="fas fa-award text-accent"></i> Quality Education</h3>
+                        <p>Our curriculum is designed to meet industry standards while fostering critical thinking and practical skills.</p>
+                    </div>
+                </article>
+                
+                <article class="program-card">
+                    <div class="program-card-content">
+                        <h3><i class="fas fa-users text-accent"></i> Experienced Faculty</h3>
+                        <p>Learn from industry professionals and educators committed to your success.</p>
+                    </div>
+                </article>
+                
+                <article class="program-card">
+                    <div class="program-card-content">
+                        <h3><i class="fas fa-hands-helping text-accent"></i> Holistic Development</h3>
+                        <p>We nurture not just academic growth but also character, leadership, and life skills.</p>
+                    </div>
+                </article>
+            </div>
+            
             <a href="https://www.facebook.com/profile.php?id=100069140122435" class="profile-link" target="_blank" rel="noopener">
-                Visit Our Facebook Page
+                <i class="fab fa-facebook"></i> Visit Our Facebook Page
             </a>
+        </section>
+        
+        <section id="contact" class="section">
+            <h2 class="text-center">Contact Information</h2>
+            <p class="text-center mb-xl">We'd love to hear from you. Reach out for inquiries or visit our campus.</p>
+            
+            <div class="programs">
+                <article class="program-card">
+                    <div class="program-card-content">
+                        <h3><i class="fas fa-map-marker-alt text-accent"></i> Campus Address</h3>
+                        <address>
+                            Lot 4 Block 51(1644) Ilang-Ilang Street<br>
+                            Camarin, Caloocan City
+                        </address>
+                    </div>
+                </article>
+                
+                <article class="program-card">
+                    <div class="program-card-content">
+                        <h3><i class="fas fa-phone-alt text-accent"></i> Contact Numbers</h3>
+                        <p>
+                            <a href="tel:+639171485067">+63 (917) 148-5067</a><br>
+                            <a href="tel:+639176769200">+63 (917) 676-9200</a><br>
+                            <a href="tel:+639178322402">+63 (917) 832-2402</a>
+                        </p>
+                    </div>
+                </article>
+                
+                <article class="program-card">
+                    <div class="program-card-content">
+                        <h3><i class="fas fa-clock text-accent"></i> Office Hours</h3>
+                        <p>Monday to Friday: 8:00 AM - 5:00 PM</p>
+                    </div>
+                </article>
+            </div>
         </section>
     </main>
     
     <footer role="contentinfo">
         <div class="footer-content">
-                    <!--
+            <div class="footer-column">
+                <h3>About Cieverose</h3>
+                <p>Providing quality education that combines academic excellence with practical skills development since 2010.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=100069140122435" aria-label="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
             <div class="footer-column">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="programs.html">Programs</a></li>
-                    <li><a href="admissions.html">Admissions</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#welcome">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
             
-                    -->
-
             <div class="footer-column">
                 <h3>Senior High School Strands</h3>
                 <ul>
-                  <!--
-                    <li><a href="programs.html#ict">Information and Communication Technology</a></li>
-                    <li><a href="programs.html#he">Home Economics</a></li>
-                    <li><a href="programs.html#humss">Humanities and Social Sciences</a></li>
-                    <li><a href="programs.html#abm">Accountancy, Business and Management</a></li>
-                    -->
-                    <li><a href="/">Information and Communication Technology</a></li>
-                    <li><a href="/">Home Economics</a></li>
-                    <li><a href="/">Humanities and Social Sciences</a></li>
-                    <li><a href="/">Accountancy, Business and Management</a></li>
+                    <li><a href="#">Information and Communication Technology</a></li>
+                    <li><a href="#">Home Economics</a></li>
+                    <li><a href="#">Humanities and Social Sciences</a></li>
+                    <li><a href="#">Accountancy, Business and Management</a></li>
+                    <li><a href="#">General Academic Strand</a></li>
                 </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Contact Information</h3>
-                <address>
-                    <p>Lot 4 Block 51(1644) Ilang-Ilang Street<br>
-                    Camarin, Caloocan City</p>
-                    <p>Phone: <br><a href="tel:+639171485067">+63 (917) 148-5067</a><br>
-                    <a href="tel:+639176769200">+63 (917) 676-9200</a><br>
-                    <a href="tel:+639178322402">+63 (917) 832-2402</a></p>
-                    <p>Office Hours: 8AM-5PM Mon-Fri</p>
-                </address>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/profile.php?id=100069140122435" aria-label="Facebook" target="_blank" rel="noopener">FB</a>
-                    <a href="/" aria-label="YouTube" target="_blank" rel="noopener">YT</a>
-                </div>
             </div>
             
             <div class="footer-column">
@@ -231,12 +1148,62 @@
         </div>
         
         <div class="copyright">
-            
-            <!--
-            <p>&copy; 2024 Cieverose College, Incorporated. All rights reserved.</p>
-            <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
-            -->
+            <p>&copy; <span id="year"></span> Cieverose College, Incorporated. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const navUl = document.querySelector('nav ul');
+            navUl.classList.toggle('show');
+            this.setAttribute('aria-expanded', navUl.classList.contains('show'));
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.querySelector('nav ul.show');
+                    if (mobileMenu) {
+                        mobileMenu.classList.remove('show');
+                        document.querySelector('.mobile-menu-btn').setAttribute('aria-expanded', 'false');
+                    }
+                }
+            });
+        });
+
+        // Set copyright year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Add animation class when elements come into view
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.program-card, .section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
