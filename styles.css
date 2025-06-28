@@ -156,8 +156,8 @@ nav a:hover {
   background-attachment: fixed;
   color: var(--light-text);
   text-align: center;
-  padding: 6rem var(--space-md);
-  margin-bottom: var(--space-xl);
+  padding: 6rem var(--space-sm);
+  margin-bottom: var(--space-sm);
 }
 
 .hero h1 {
