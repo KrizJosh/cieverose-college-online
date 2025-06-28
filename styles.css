@@ -163,7 +163,7 @@
         }
 
         .section {
-            padding: var(--space-sm) 0;
+            padding: var(--space-xs) 0;
         }
 
         .section-title {
