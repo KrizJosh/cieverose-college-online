@@ -156,8 +156,8 @@ nav a:hover {
   background-attachment: fixed;
   color: var(--light-text);
   text-align: center;
-  padding: 6rem var(--space-sm);
-  margin-bottom: var(--space-sm);
+  padding: 6rem var(--space-md);
+  margin-bottom: var(--space-xl);
 }
 
 .hero h1 {
@@ -400,7 +400,7 @@ footer {
   }
   
   .hero {
-    padding: 4rem var(--space-md);
+    padding: 9rem var(--space-md);
     background-attachment: scroll;
   }
   
@@ -448,7 +448,7 @@ footer {
   }
   
   .hero {
-    padding: 3rem var(--space-md);
+    padding: 8rem var(--space-md);
   }
   
   .hero h1 {
