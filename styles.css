@@ -477,7 +477,7 @@
             content: attr(data-first-letter);
             font-weight: bold;
             color: var(--secondary-color);
-            margin-right: 0.5em;
+            margin-right: 1 em;
             font-size: 1.2em;
             position: absolute;
             left: 0.5em;
