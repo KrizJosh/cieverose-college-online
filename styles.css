@@ -95,6 +95,12 @@
             padding-bottom: var(--space-sm);
             margin-top: var(--space-xl);
         }
+
+
+
+
+
+        
 /* 
         h2::after {
             content: '';
@@ -111,11 +117,11 @@
             font-size: 1.5rem;
             color: var(--primary-color);
         }
-
+/* 
         h3 {
             font-size: 1.5rem;
             color: #84bef1;
-        }
+        } */
 
 
         p {
