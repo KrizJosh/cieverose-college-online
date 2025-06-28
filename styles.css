@@ -598,7 +598,7 @@
         transform: scale(1.02);
         }
 
-        .carousel-caption {
+        .carousel-caption-text {
         position: absolute;
         bottom: 0;
         left: 0;
@@ -611,7 +611,7 @@
         transition: transform 0.3s ease;
         }
 
-        .carousel-slide:hover .carousel-caption {
+        .carousel-slide:hover .carousel-caption-text {
         transform: translateY(-10px);
         }
 
@@ -722,7 +722,7 @@
             height: 250px;
         }
         
-        .carousel-caption {
+        .carousel-caption-text {
             padding: var(--space-md);
         }
         
@@ -731,7 +731,7 @@
             font-size: 1.2rem;
         }
         
-        .carousel-caption p {
+        .carousel-caption-text p {
             font-size: 0.9rem;
         }
         }
@@ -760,7 +760,7 @@
             object-fit: cover;
         }
 
-        .carousel-caption {
+        .carousel-caption-text {
             position: absolute;
             bottom: 0;
             left: 0;
