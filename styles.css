@@ -469,7 +469,7 @@
             background: var(--primary-light);
             padding: var(--space-md);
             border-radius: var(--radius-sm);
-            border-left: 3px solid var(--secondary-color);
+            border-left: 2px solid var(--secondary-color);
         }
 
         .core-values li::first-letter {
