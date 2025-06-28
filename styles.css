@@ -163,7 +163,7 @@
         }
 
         .section {
-            padding: var(--space-xl) 0;
+            padding: var(--space-md) 0;
         }
 
         .section-title {
@@ -830,8 +830,8 @@
         .core-values-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
-            gap: var(--space-xs);
-            margin-bottom: var(--space-xs);
+            gap: var(--space-sm);
+            margin-bottom: var(--space-sm);
         }
 
         .core-value-item {
