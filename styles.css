@@ -464,8 +464,8 @@
 
         .core-values li {
             margin-bottom: var(--space-sm);
-            padding: var(--space-md);
-            padding-left: 2em; /* Increased padding to prevent overlap */
+			padding: var(--space-md);
+            padding-left: 4em; /* Increased padding to prevent overlap */
             text-indent: -1.5em;
             background: var(--primary-light);
             border-radius: var(--radius-sm);
@@ -479,8 +479,8 @@
             color: var(--secondary-color);
             margin-right: 1 em;
             font-size: 1.2em;
-            position: absolute;
-            left: 0.5em;
+            position: relative;
+			right: 1em;
         }
 
         /* ===== School Goals List ===== */
