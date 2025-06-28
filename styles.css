@@ -1,7 +1,7 @@
 /* ===== Enhanced Base Styles ===== */
         :root {
             /* Enhanced Color Scheme - Blue & Yellow Theme */
-            --primary-color: #1a5f9a; /* Deep blue */
+            --primary-color: #a5cff3; /* Deep blue */
             --primary-dark: #0d3b66;
             --primary-light: #e6f0fa;
             --secondary-color: #f9c80e; /* Vibrant yellow */
@@ -722,7 +722,6 @@
         
         .carousel-caption h3 {
             font-size: 1.2rem;
-            color: #959d9e;
         }
         
         .carousel-caption p {
