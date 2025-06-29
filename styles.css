@@ -1279,7 +1279,7 @@
 }
 
 .footer-logo {
-    height: 30px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
     width: auto;
     opacity: 0.8;
     transition: opacity var(--transition-fast);
