@@ -267,7 +267,7 @@
 
 
 
-        
+
         /* ===== Enhanced Hero Section ===== */
         .hero {
             background: linear-gradient(rgba(26, 95, 154, 0.8), rgba(13, 59, 102, 0.9)), 
@@ -1211,4 +1211,18 @@
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
+        }
+
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            max-width: 150px; /* Adjust as needed */
+            object-fit: contain;
+        }
+
+        @media (max-width: 768px) {
+            .logo img {
+                height: 40px;
+            }
         }

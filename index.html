@@ -935,34 +935,6 @@
             });
         });
 
-        // Accordion functionality
-        const accordionHeaders = document.querySelectorAll('.accordion-header');
-        accordionHeaders.forEach(header => {
-            header.addEventListener('click', () => {
-                const accordionItem = header.parentElement;
-                const accordionContent = header.nextElementSibling;
-                
-                if (header.classList.contains('active')) {
-                    header.classList.remove('active');
-                    accordionContent.style.maxHeight = null;
-                } else {
-                    // Close all other accordion items
-                    document.querySelectorAll('.accordion-header').forEach(h => {
-                        if (h !== header && h.classList.contains('active')) {
-                            h.classList.remove('active');
-                            h.nextElementSibling.style.maxHeight = null;
-                        }
-                    });
-                    
-                    header.classList.add('active');
-                    accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
-                }
-            });
-        });
-
-        // Open first accordion by default
-        document.querySelector('.accordion-header').click();
-
         // Enhanced directions link with geolocation
         document.getElementById('directions-link').addEventListener('click', function(e) {
             if (e.button === 0) {
