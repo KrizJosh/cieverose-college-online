@@ -5,12 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Cieverose College - Providing quality education since 2005">
     <script defer src="/_vercel/insights/script.js"></script>
-    <script defer src="script.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="styles.css">
     <title>Cieverose College, Inc. | Quality Education</title>
     <style>
-        
+        /* ===== Enhanced Accordion Styles ===== */
+.accordion {
+    width: 100%;
+    margin: var(--space-lg) 0;
+}
+
+.accordion-item {
+    margin-bottom: var(--space-md);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+}
+
+.accordion-item:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.accordion-header {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: var(--space-md) var(--space-lg);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all var(--transition-fast);
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+}
+
+.accordion-header:hover {
+    background-color: var(--primary-dark);
+}
+
+.accordion-header:focus {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
+.accordion-header.active {
+    background-color: var(--primary-dark);
+}
+
+.accordion-header::after {
+    content: '+';
+    font-size: 1.2rem;
+    transition: transform var(--transition-normal);
+}
+
+.accordion-header.active::after {
+    content: '-';
+}
+
+.accordion-content {
+    background-color: var(--card-bg);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height var(--transition-slow) ease;
+}
+
+.accordion-content-inner {
+    padding: var(--space-md) var(--space-lg);
+}
+
+/* Show content when active */
+.accordion-item.active .accordion-content {
+    max-height: 2000px; /* Adjust based on your content */
+}
+
+/* Animation when opening */
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.accordion-item.active .accordion-content-inner {
+    animation: slideDown 0.3s ease-out;
+}
     </style>
 </head>
 <body>
@@ -26,6 +107,7 @@
             <ul>
                 <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
                 <li><a href="#programs"><i class="fas fa-book-open"></i> Programs</a></li>
+                <li><a href="#library"><i class="fas fa-book"></i> Library</a></li>
                 <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
                 <li><a href="https://www.facebook.com/profile.php?id=100069140122435" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a></li>
                 <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
@@ -95,36 +177,72 @@
                 </ul>
             </article>
             
-            <article class="mt-xl">
-                <h3><i class="fas fa-star text-accent"></i> OUR CORE VALUES, OUR SHIELD</h3>
-                <div class="core-values-container">
-                    <div class="core-value-item">
-                        <h4><span>S</span>Strong Faith</h4>
-                        <p>A foundation of spiritual strength and moral integrity that guides personal and communal growth. Strong faith nurtures resilience, hope, and ethical decision-making, empowering students to face challenges with confidence and purpose.</p>
-                    </div>
-                    <div class="core-value-item">
-                        <h4><span>H</span>Hard Work</h4>
-                        <p>The commitment to diligence, perseverance, and consistent effort in all academic and personal endeavors. Hard work instills discipline and a strong work ethic, enabling students to achieve excellence and overcome obstacles.</p>
-                    </div>
-                    <div class="core-value-item">
-                        <h4><span>I</span>Integrity</h4>
-                        <p>Upholding honesty, transparency, and ethical behavior in all actions. Integrity fosters trustworthiness and accountability, essential for building character and maintaining a respectful academic and social environment.</p>
-                    </div>
-                    <div class="core-value-item">
-                        <h4><span>E</span>Excellence</h4>
-                        <p>Striving for the highest standards in education, innovation, and service. Excellence motivates continuous improvement, creativity, and the pursuit of quality in all aspects of learning and community engagement.</p>
-                    </div>
-                    <div class="core-value-item">
-                        <h4><span>L</span>Love</h4>
-                        <p>Cultivating compassion, empathy, and genuine care for others. Love promotes harmonious relationships, social responsibility, and a supportive community where everyone feels valued and respected.</p>
-                    </div>
-                    <div class="core-value-item">
-                        <h4><span>D</span>Diversity & Deference</h4>
-                        <p>Valuing the richness of different cultures, ideas, and perspectives while showing respect and humility towards others. Embracing diversity and practicing deference foster inclusivity, collaboration, and mutual understanding in a globalized world.</p>
-                    </div>
-                </div>
-                <p class="text-center"><strong>This SHIELD framework serves as a guiding compass for students, faculty, and staff at Cieverose College, aligning with its mission to empower youth through holistic education and character formation.</strong></p>
-            </article>
+            <!-- In the Welcome section, replace the core values article with this: -->
+<article class="mt-xl">
+    <h3><i class="fas fa-star text-accent"></i> OUR CORE VALUES, OUR SHIELD</h3>
+    <div class="core-values-grid">
+        <div class="core-value-card" tabindex="0">
+            <div class="core-value-header">
+                <span class="core-value-letter">S</span>
+                <h4>Strong Faith</h4>
+            </div>
+            <div class="core-value-content">
+                <p>A foundation of spiritual strength and moral integrity that guides personal and communal growth. Strong faith nurtures resilience, hope, and ethical decision-making, empowering students to face challenges with confidence and purpose.</p>
+            </div>
+        </div>
+        
+        <div class="core-value-card" tabindex="0">
+            <div class="core-value-header">
+                <span class="core-value-letter">H</span>
+                <h4>Hard Work</h4>
+            </div>
+            <div class="core-value-content">
+                <p>The commitment to diligence, perseverance, and consistent effort in all academic and personal endeavors. Hard work instills discipline and a strong work ethic, enabling students to achieve excellence and overcome obstacles.</p>
+            </div>
+        </div>
+        
+        <div class="core-value-card" tabindex="0">
+            <div class="core-value-header">
+                <span class="core-value-letter">I</span>
+                <h4>Integrity</h4>
+            </div>
+            <div class="core-value-content">
+                <p>Upholding honesty, transparency, and ethical behavior in all actions. Integrity fosters trustworthiness and accountability, essential for building character and maintaining a respectful academic and social environment.</p>
+            </div>
+        </div>
+        
+        <div class="core-value-card" tabindex="0">
+            <div class="core-value-header">
+                <span class="core-value-letter">E</span>
+                <h4>Excellence</h4>
+            </div>
+            <div class="core-value-content">
+                <p>Striving for the highest standards in education, innovation, and service. Excellence motivates continuous improvement, creativity, and the pursuit of quality in all aspects of learning and community engagement.</p>
+            </div>
+        </div>
+        
+        <div class="core-value-card" tabindex="0">
+            <div class="core-value-header">
+                <span class="core-value-letter">L</span>
+                <h4>Love</h4>
+            </div>
+            <div class="core-value-content">
+                <p>Cultivating compassion, empathy, and genuine care for others. Love promotes harmonious relationships, social responsibility, and a supportive community where everyone feels valued and respected.</p>
+            </div>
+        </div>
+        
+        <div class="core-value-card" tabindex="0">
+            <div class="core-value-header">
+                <span class="core-value-letter">D</span>
+                <h4>Diversity & Deference</h4>
+            </div>
+            <div class="core-value-content">
+                <p>Valuing the richness of different cultures, ideas, and perspectives while showing respect and humility towards others. Embracing diversity and practicing deference foster inclusivity, collaboration, and mutual understanding in a globalized world.</p>
+            </div>
+        </div>
+    </div>
+    <p class="text-center"><strong>This SHIELD framework serves as a guiding compass for students, faculty, and staff at Cieverose College, aligning with its mission to empower youth through holistic education and character formation.</strong></p>
+</article>
         </section>
         
         <section id="programs" class="section bg-section">
@@ -142,11 +260,6 @@
                             <li>Specialized subjects: Programming, Animation, Computer Systems Servicing</li>
                             <li>NC II Certification opportunities</li>
                         </ul>
-                        <!--
-                        <a href="#">
-                            Learn More <i class="fas fa-arrow-right"></i>
-                        </a>
-                        -->
                     </div>
                 </article>
                 
@@ -160,11 +273,6 @@
                             <li>Specialized subjects: Cookery, Food and Beverage Services, Tourism</li>
                             <li>Hands-on training in fully equipped kitchen labs</li>
                         </ul>
-                        <!--
-                        <a href="#">
-                            Learn More <i class="fas fa-arrow-right"></i>
-                        </a>
-                        -->
                     </div>
                 </article>
                 
@@ -178,11 +286,6 @@
                             <li>Specialized subjects: Creative Writing, Social Sciences, Philosophy</li>
                             <li>Strong preparation for college degrees in arts and humanities</li>
                         </ul>
-                        <!--
-                        <a href="#">
-                            Learn More <i class="fas fa-arrow-right"></i>
-                        </a>
-                        -->
                     </div>
                 </article>
                 
@@ -196,11 +299,6 @@
                             <li>Specialized subjects: Business Math, Finance, Marketing</li>
                             <li>Real-world business simulations and case studies</li>
                         </ul>
-                        <!--
-                        <a href="#">
-                            Learn More <i class="fas fa-arrow-right"></i>
-                        </a>
-                        -->
                     </div>
                 </article>
                 
@@ -216,30 +314,438 @@
                             <li>Ideal for students exploring multiple career options</li>
                             <li>Strong foundation for liberal arts and sciences</li>
                         </ul>
-                        <!--
-                        <a href="#">
-                            Learn More <i class="fas fa-arrow-right"></i>
-                        </a>
-                        -->
                     </div>
                 </article>
             </div>
         </section>
-            
-
-
         
-            <article class="mt-xl">
-                <h3><i class="fas fa-flag text-accent"></i> Our Accreditation</h3>
-                <p>Cieverose College is recognized by:</p>
-                <ul class="school-goals">
-                    <li>Commission on Higher Education (CHED)</li>
-                    <li>Technical Education and Skills Development Authority (TESDA)</li>
-                </ul>
-            </article>
-
-
-
+        <!-- Library Collections Section -->
+        <!-- Library Collections Section -->
+<section id="library" class="library-section section">
+    <div class="container">
+        <h2 class="section-title">Library Collections</h2>
+        <p class="text-center mb-xl">Explore our extensive collection of academic resources</p>
+        
+        <!-- Professional Journals Accordion -->
+        <div class="accordion-item">
+            <div class="accordion-header active">
+                <span><i class="fas fa-book text-accent"></i> Professional Journals Collection</span>
+            </div>
+            <div class="accordion-content" style="max-height: 1000px;">
+                <div class="accordion-content-inner">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Title / Product Name</th>
+                                <th>Author / Brand</th>
+                                <th>Year</th>
+                                <th>Publisher / Brand</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Prayer Journal Konek 5.5x8 Inches, 128 Pages</td>
+                                <td>National Book Store</td>
+                                <td>2024</td>
+                                <td>National Book Store</td>
+                                <td>Classic/fancy journal</td>
+                            </tr>
+                                            <tr>
+                                                <td>Gratitude Journal Ang Bible Pinoy Version 5.5x8</td>
+                                                <td>National Book Store</td>
+                                                <td>2024</td>
+                                                <td>National Book Store</td>
+                                                <td>Themed journal (faith-based)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Kozo Journal Notebook A4 (various colors)</td>
+                                                <td>National Book Store</td>
+                                                <td>2023</td>
+                                                <td>National Book Store</td>
+                                                <td>Fancy journal with textured cover</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Little Birdie Paintable Canvas Soft Cover A5 Dotted 80 Pages</td>
+                                                <td>Little Birdie</td>
+                                                <td>2023</td>
+                                                <td>Little Birdie</td>
+                                                <td>Fancy/themed journal</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Little Birdie Paintable Canvas Cover A6 90gsm 120 Pages</td>
+                                                <td>Little Birdie</td>
+                                                <td>2023</td>
+                                                <td>Little Birdie</td>
+                                                <td>Fancy/themed journal</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2025 Daily Planner with Foil Stamping 14.8x21cm</td>
+                                                <td>Best Buy</td>
+                                                <td>2024</td>
+                                                <td>Best Buy (NBS brand)</td>
+                                                <td>Themed planner/journal</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Best Buy Budget & Saver Planner 14.8x20.5 cm 60 Sheets</td>
+                                                <td>Best Buy</td>
+                                                <td>2024</td>
+                                                <td>Best Buy (NBS brand)</td>
+                                                <td>Classic planner</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2025 Monthly Planner Pad 11x8.5 inches, Garden</td>
+                                                <td>National Book Store</td>
+                                                <td>2024</td>
+                                                <td>National Book Store</td>
+                                                <td>Themed planner</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Undated Weekly Planner 4x1 inches 54 Sheets, Beige</td>
+                                                <td>National Book Store</td>
+                                                <td>2024</td>
+                                                <td>National Book Store</td>
+                                                <td>Classic planner</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Undated Weekly Horizontal Planner 8x6 inches, Lime</td>
+                                                <td>National Book Store</td>
+                                                <td>2024</td>
+                                                <td>National Book Store</td>
+                                                <td>Themed planner</td>
+                                           </tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+                
+                <!-- Periodicals Accordion -->
+        <div class="accordion-item">
+            <div class="accordion-header active">
+                <span><i class="fas fa-newspaper text-accent"></i> Periodicals Collection</span>
+            </div>
+            <div class="accordion-content" style="max-height: 1000px;">
+                <div class="accordion-content-inner">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Title</th>
+                                <th>Publisher / Brand</th>
+                                <th>Year / Issue Date</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                                <td>1</td>
+                                                <td>Mega Magazine</td>
+                                                <td>Mega Publishing</td>
+                                                <td>Feb 2025</td>
+                                                <td>Local lifestyle & culture</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Rising Tigers: The Nation Builders in Asia</td>
+                                                <td>Rising Tigers Media</td>
+                                                <td>2024</td>
+                                                <td>Regional business & leadership</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Billboard PH Special - Ben and Ben Magazine</td>
+                                                <td>Billboard Philippines</td>
+                                                <td>2024</td>
+                                                <td>Entertainment & music</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>Vogue Magazine</td>
+                                                <td>Condé Nast</td>
+                                                <td>Dec 2023</td>
+                                                <td>International fashion</td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>Vogue Magazine</td>
+                                                <td>Condé Nast</td>
+                                                <td>Oct 2023</td>
+                                                <td>International fashion</td>
+                                            </tr>
+                                            <tr>
+                                                <td>6</td>
+                                                <td>Vogue Magazine</td>
+                                                <td>Condé Nast</td>
+                                                <td>Sep 2023</td>
+                                                <td>International fashion</td>
+                                            </tr>
+                                            <tr>
+                                                <td>7</td>
+                                                <td>Vogue Magazine</td>
+                                                <td>Condé Nast</td>
+                                                <td>Jul 2023</td>
+                                                <td>International fashion</td>
+                                            </tr>
+                                            <tr>
+                                                <td>8</td>
+                                                <td>Vogue Magazine</td>
+                                                <td>Condé Nast</td>
+                                                <td>Jun 2023</td>
+                                                <td>International fashion</td>
+                                            </tr>
+                                            <tr>
+                                                <td>9</td>
+                                                <td>Vogue Magazine</td>
+                                                <td>Condé Nast</td>
+                                                <td>May 2023</td>
+                                                <td>International fashion</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10</td>
+                                                <td>W Korea</td>
+                                                <td>W Korea Magazine</td>
+                                                <td>Feb 2022</td>
+                                                <td>Korean lifestyle & fashion</td>
+                                            </tr>
+                                            <tr>
+                                                <td>11</td>
+                                                <td>Harper's Bazaar</td>
+                                                <td>Harper's Bazaar</td>
+                                                <td>May 2022</td>
+                                                <td>International fashion</td>
+                                            </tr>
+                                            <tr>
+                                                <td>12</td>
+                                                <td>National Geographic Kids Almanac</td>
+                                                <td>National Geographic Society</td>
+                                                <td>2024</td>
+                                                <td>Children's science & nature</td>
+                                            </tr>
+                                            <tr>
+                                                <td>13</td>
+                                                <td>Reader's Digest</td>
+                                                <td>Reader's Digest Association</td>
+                                                <td>2023</td>
+                                                <td>General interest</td>
+                                            </tr>
+                                            <tr>
+                                                <td>14</td>
+                                                <td>Cosmopolitan</td>
+                                                <td>Hearst Communications</td>
+                                                <td>2023</td>
+                                                <td>Women's lifestyle</td>
+                                            </tr>
+                                            <tr>
+                                                <td>15</td>
+                                                <td>Esquire</td>
+                                                <td>Hearst Communications</td>
+                                                <td>2023</td>
+                                                <td>Men's lifestyle & culture</td>
+                                            </tr>
+                                            <tr>
+                                                <td>16</td>
+                                                <td>Time Magazine</td>
+                                                <td>Time USA</td>
+                                                <td>2023</td>
+                                                <td>News & current affairs</td>
+                                            </tr>
+                                            <tr>
+                                                <td>17</td>
+                                                <td>Newsweek</td>
+                                                <td>Newsweek LLC</td>
+                                                <td>2023</td>
+                                                <td>News & current affairs</td>
+                                            </tr>
+                                            <tr>
+                                                <td>18</td>
+                                                <td>Sports Illustrated</td>
+                                                <td>Sports Illustrated</td>
+                                                <td>2023</td>
+                                                <td>Sports news & features</td>
+                                            </tr>
+                                            <tr>
+                                                <td>19</td>
+                                                <td>Entrepreneur</td>
+                                                <td>Entrepreneur Media</td>
+                                                <td>2023</td>
+                                                <td>Business & startups</td>
+                                            </tr>
+                                            <tr>
+                                                <td>20</td>
+                                                <td>Forbes</td>
+                                                <td>Forbes Media</td>
+                                                <td>2023</td>
+                                                <td>Business & finance</td>
+                                            </tr>
+                            <!-- Add all periodical entries here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+		
+		<!-- Filipiniana Accordion -->
+        <div class="accordion-item">
+            <div class="accordion-header active">
+                <span><i class="fas fa-leaf text-accent"></i> Filipiniana Collection</span>
+            </div>
+            <div class="accordion-content" style="max-height: 1000px;">
+                <div class="accordion-content-inner">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Author(s)</th>
+                                <th>Year</th>
+                                <th>Publisher</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+<td>Insect Hag and Other Stories</td>
+                                    <td>Yvette Fernandez</td>
+                                    <td>2024</td>
+                                    <td>Anvil Publishing</td>
+                                    <td>Contemporary Filipino fiction</td>
+                                </tr>
+                                <tr>
+                                    <td>Mga Kuwento ni Lola Basyang (New Edition)</td>
+                                    <td>Severino Reyes (retold by various)</td>
+                                    <td>2023</td>
+                                    <td>Adarna House</td>
+                                    <td>Classic Filipino folktales</td>
+                                </tr>
+                                <tr>
+                                    <td>Mga Kwento ni Lola Basyang sa Modernong Panahon</td>
+                                    <td>Various Authors</td>
+                                    <td>2022</td>
+                                    <td>Lampara Books</td>
+                                    <td>Modern retelling of folklore</td>
+                                </tr>
+                                <tr>
+                                    <td>Bayaning Pilipino: Mga Kwento ng Kabayanihan</td>
+                                    <td>Various Authors</td>
+                                    <td>2021</td>
+                                    <td>Anvil Publishing</td>
+                                    <td>Stories of Filipino heroes</td>
+                                </tr>
+                                <tr>
+                                    <td>Tala: Mga Kuwento ng Kababaihan</td>
+                                    <td>Various Authors</td>
+                                    <td>2021</td>
+                                    <td>Ateneo de Manila Press</td>
+                                    <td>Filipino women's narratives</td>
+                                </tr>
+                                <tr>
+                                    <td>Mga Dula sa Panahon ng Pandemya</td>
+                                    <td>Various Authors</td>
+                                    <td>2020</td>
+                                    <td>University of the Philippines Press</td>
+                                    <td>Filipino plays on pandemic</td>
+                                </tr>
+                                <tr>
+                                    <td>Filipino Poetry Today</td>
+                                    <td>Various Filipino Poets</td>
+                                    <td>2020</td>
+                                    <td>De La Salle University Press</td>
+                                    <td>Contemporary poetry collection</td>
+                                </tr>                            <!-- Add all Filipiniana entries here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+		
+		
+		<!-- List of Books Accordion -->
+        <div class="accordion-item">
+            <div class="accordion-header active">
+                <span><i class="fas fa-book-open text-accent"></i> List of Books</span>
+            </div>
+            <div class="accordion-content" style="max-height: 1000px;">
+                <div class="accordion-content-inner">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>NO</th>
+                                <th>AUTHOR</th>
+                                <th>TITLE</th>
+                                <th>YEAR</th>
+                                <th>VOLUME</th>
+                                <th>SUBJECT CODE</th>
+                                <th>Yr & Sem</th>
+                                <th>No. of Copies</th>
+                                <th>Format</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Vistan, Deogracias</td>
+                                <td>The Filipino Entrepreneur</td>
+                                <td>2023</td>
+                                <td>1st Ed</td>
+                                <td>ECC 101</td>
+                                <td>11</td>
+                                <td>6</td>
+                                <td>Printed</td>
+                            </tr>
+							<tr>
+                                    <td>2</td>
+                                    <td>Feron, Jose</td>
+                                    <td>The Greatest Salesman I Know Does Not Sell</td>
+                                    <td>2022</td>
+                                    <td>1st Ed</td>
+                                    <td>ECC 101</td>
+                                    <td>11</td>
+                                    <td>6</td>
+                                    <td>Printed</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Smith, Mark</td>
+                                    <td>The Entrepreneur's Guide to the Art of War</td>
+                                    <td>2021</td>
+                                    <td>1st Ed</td>
+                                    <td>ECC 101</td>
+                                    <td>11</td>
+                                    <td>6</td>
+                                    <td>Printed</td>
+                                </tr>
+                                <!-- Add more rows as needed -->
+                                <tr>
+                                    <td>136</td>
+                                    <td>Garcia, M. L</td>
+                                    <td>The Self and Identity: A Multidisciplinary Approach</td>
+                                    <td>2021</td>
+                                    <td>1st Ed</td>
+                                    <td>GE1_UTS</td>
+                                    <td>11</td>
+                                    <td>10</td>
+                                    <td>Printed</td>
+                                </tr>
+                                <tr>
+                                    <td>137</td>
+                                    <td>Reyes, J. P</td>
+                                    <td>Understanding Human Behavior and the Self</td>
+                                    <td>2022</td>
+                                    <td>1st Ed</td>
+                                    <td>GE1_UTS</td>
+                                    <td>11</td>
+                                    <td>10</td>
+                                    <td>Printed</td>
+                                </tr>
+                            <!-- Add all book entries here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+		
+        </section>
+        
         <section id="about" class="profile-section section">
             <h2>Why Choose Cieverose College, Inc.?</h2>
             <p>We provide a nurturing environment that fosters academic excellence, personal growth, and career readiness.</p>
@@ -271,368 +777,7 @@
                 <i class="fab fa-facebook"></i> Visit Our Facebook Page
             </a>
         </section>
-        <section class="events-section">
-          <div class="container">
-              <h2 class="section-title">School Events & Activities</h2>
-              <p class="text-center mb-xl">Explore our vibrant school life through these memorable events</p>
-              
-              <div class="event-tabs">
-                  <button class="event-tab active" data-tab="intramurals">JS Prom</button>
-                  <button class="event-tab" data-tab="field-trips">Field Trip</button>
-                  <button class="event-tab" data-tab="sportsfest">Sportsfest</button>
-                  <button class="event-tab" data-tab="cultural">Cultural Events</button>
-              </div>
-              
-              <div id="intramurals" class="event-content active">
-                  <div class="event-carousel">
-                      <div class="carousel-container">
-                          <div class="carousel-slide">
-                              <img src="images/JS/JS2.jpg" alt="JS Prom">
-                              <div class="carousel-caption-text">
-                                  <!-- <h3>Track and Field</h3>
-                                  <p>Students showcasing their speed and agility</p> -->
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/JS/JS3.jpg">
-                              <div class="carousel-caption-text">
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/JS/JS5.jpg">
-                              <div class="carousel-caption-text">
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/JS/JS6.jpg">
-                              <div class="carousel-caption-text">
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/JS/JS8.jpg">
-                              <div class="carousel-caption-text">
-                              </div>
-                          </div>
-                      </div>
-                      <div class="carousel-nav">
-                          <button class="carousel-btn prev-btn">&lt;</button>
-                          <button class="carousel-btn next-btn">&gt;</button>
-                      </div>
-                      <div class="carousel-indicators">
-                          <div class="carousel-indicator active"></div>
-                          <div class="carousel-indicator"></div>
-                          <div class="carousel-indicator"></div>
-                          <div class="carousel-indicator"></div>
-                          <div class="carousel-indicator"></div>
-                      </div>
-                  </div>
-              </div>
-              
-              <div id="field-trips" class="event-content">
-                  <div class="event-carousel">
-                      <div class="carousel-container">
-                          <div class="carousel-slide">
-                              <img src="images/FT/FT1.jpg" alt="Educational field trip">
-                              <div class="carousel-caption-text">
-                                  <h3>Educational Trips</h3>
-                                  <p>Students learning outside the classroom</p>
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/FT/FT2.jpg" alt="Nature trip">
-                              <div class="carousel-caption-text">
-                                  <h3>Nature Exploration</h3>
-                                  <p>Environmental awareness activities</p>
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/FT/FT3.jpg" alt="Educational field trip">
-                              <div class="carousel-caption-text">
-                                  <h3>Educational Trips</h3>
-                                  <p>Students learning outside the classroom</p>
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/FT/FT10.jpg" alt="Educational field trip">
-                              <div class="carousel-caption">
-                                  <h3>Educational Trips</h3>
-                                  <p>Students learning outside the classroom</p>
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/FT/FT11.jpg" alt="Educational field trip">
-                              <div class="carousel-caption-text">
-                                  <h3>Educational Trips</h3>
-                                  <p>Students learning outside the classroom</p>
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/FT/FT9.jpg" alt="Educational field trip">
-                              <div class="carousel-caption-text">
-                                  <h3>Educational Trips</h3>
-                                  <p>Students learning outside the classroom</p>
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/FT/FT8.jpg" alt="Educational field trip">
-                              <div class="carousel-caption-text">
-                                  <h3>Educational Trips</h3>
-                                  <p>Students learning outside the classroom</p>
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/FT/FT7.jpg" alt="Educational field trip">
-                              <div class="carousel-caption-text">
-                                  <h3>Educational Trips</h3>
-                                  <p>Students learning outside the classroom</p>
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/FT/FT6.jpg" alt="Educational field trip">
-                              <div class="carousel-caption-text">
-                                  <h3>Educational Trips</h3>
-                                  <p>Students learning outside the classroom</p>
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/FT/FT5.jpg" alt="Educational field trip">
-                              <div class="carousel-caption-text">
-                                  <h3>Educational Trips</h3>
-                                  <p>Students learning outside the classroom</p>
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/FT/FT4.jpg" alt="Educational field trip">
-                              <div class="carousel-caption-text">
-                                  <h3>Educational Trips</h3>
-                                  <p>Students learning outside the classroom</p>
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/FT/FT3.jpg" alt="Educational field trip">
-                              <div class="carousel-caption-text">
-                                  <h3>Educational Trips</h3>
-                                  <p>Students learning outside the classroom</p>
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/FT/FT2.jpg" alt="Educational field trip">
-                              <div class="carousel-caption-text">
-                                  <h3>Educational Trips</h3>
-                                  <p>Students learning outside the classroom</p>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="carousel-nav">
-                          <button class="carousel-btn prev-btn">&lt;</button>
-                          <button class="carousel-btn next-btn">&gt;</button>
-                      </div>
-                      <div class="carousel-indicators">
-                          <div class="carousel-indicator active"></div>
-                          <div class="carousel-indicator"></div>
-                          <div class="carousel-indicator"></div>
-                          <div class="carousel-indicator"></div>
-                          <div class="carousel-indicator"></div>
-                          <div class="carousel-indicator"></div>
-                          <div class="carousel-indicator"></div>
-                          <div class="carousel-indicator"></div>
-                      </div>
-                  </div>
-              </div>
-              
-              <div id="sportsfest" class="event-content">
-                  <div class="event-carousel">
-                      <div class="carousel-container">
-                          <div class="carousel-slide">
-                              <img src="images/SF/SF10.jpg" alt="Sportsfest basketball game">
-                              <div class="carousel-caption-text">
-                                  <h3>Annual Sportsfest</h3>
-                                  <p>Students compete in various sports activities to promote teamwork and healthy competition</p>
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/SF/SF2.jpg" alt="Sportsfest">
-                              <div class="carousel-caption-text">
-                                  <p>Exciting matches between different grade levels</p>
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/SF/SF1.jpg" alt="Sportsfest">
-                              <div class="carousel-caption-text">
-                                  <!-- <h3>Awards Ceremony</h3>
-                                  <p>Recognizing outstanding athletes and teams</p> -->
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/SF/SF11.jpg" alt="Sportsfest">
-                              <div class="carousel-caption-text">
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/SF/SF2.jpg" alt="Sportsfest">
-                              <div class="carousel-caption-text">
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/SF/SF3.jpg" alt="Sportsfest">
-                              <div class="carousel-caption-text">
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/SF/SF9.jpg" alt="Sportsfest">
-                              <div class="carousel-caption-text">
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/SF/SF5.jpg" alt="Sportsfest">
-                              <div class="carousel-caption-text">
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/SF/SF6.jpg" alt="Sportsfest">
-                              <div class="carousel-caption-text">
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/SF/SF7.jpg" alt="Sportsfest">
-                              <div class="carousel-caption-text">
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/SF/SF8.jpg" alt="Sportsfest">
-                              <div class="carousel-caption-text">
-                              </div>
-                          </div>
-                      </div>
-                      <div class="carousel-nav">
-                          <button class="carousel-btn prev-btn">&lt;</button>
-                          <button class="carousel-btn next-btn">&gt;</button>
-                      </div>
-                      <div class="carousel-indicators">
-                          <div class="carousel-indicator active"></div>
-                          <div class="carousel-indicator"></div>
-                          <div class="carousel-indicator"></div>
-                          <div class="carousel-indicator"></div>
-                          <div class="carousel-indicator"></div>
-                          <div class="carousel-indicator"></div>
-                          <div class="carousel-indicator"></div>
-                      </div>
-                  </div>
-              </div>
-              
-              <div id="cultural" class="event-content">
-                  <div class="event-carousel">
-                      <div class="carousel-container">
-                          <div class="carousel-slide">
-                              <img src="images/culture/cultural1.jfif" alt="Cultural dance performance">
-                              <div class="carousel-caption-text">
-                                  <h3>Cultural Performances</h3>
-                                  <p>Showcasing traditional dances and music</p>
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/culture/cultural11.jfif" alt="Cultural dance performance">
-                              <div class="carousel-caption-text">
-                                  <h3>Cultural Performances</h3>
-                                  <p>Showcasing traditional dances and music</p>
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/culture/cultural13.jfif" alt="Cultural dance performance">
-                              <div class="carousel-caption-text">
-                                  <h3>Cultural Performances</h3>
-                                  <p>Showcasing traditional dances and music</p>
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/culture/cultural18.jfif" alt="Cultural dance performance">
-                              <div class="carousel-caption-text">
-                                  <h3>Cultural Performances</h3>
-                                  <p>Showcasing traditional dances and music</p>
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/culture/cultural15.jfif" alt="Cultural dance performance">
-                              <div class="carousel-caption-text">
-                                  <h3>Cultural Performances</h3>
-                                  <p>Showcasing traditional dances and music</p>
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/culture/cultural16.jfif" alt="Cultural dance performance">
-                              <div class="carousel-caption-text">
-                                  <h3>Cultural Performances</h3>
-                                  <p>Showcasing traditional dances and music</p>
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/culture/cultural17.jfif" alt="Cultural dance performance">
-                              <div class="carousel-caption-text">
-                                  <h3>Cultural Performances</h3>
-                                  <p>Showcasing traditional dances and music</p>
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/culture/cultural2.jpg" alt="Cultural dance performance">
-                              <div class="carousel-caption-text">
-                                  <h3>Cultural Performances</h3>
-                                  <p>Showcasing traditional dances and music</p>
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/culture/cultural3.jfif" alt="Cultural dance performance">
-                              <div class="carousel-caption-text">
-                                  <h3>Cultural Performances</h3>
-                                  <p>Showcasing traditional dances and music</p>
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/culture/cultural4.jfif" alt="Cultural dance performance">
-                              <div class="carousel-caption-text">
-                                  <h3>Cultural Performances</h3>
-                                  <p>Showcasing traditional dances and music</p>
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/culture/cultural5.jfif" alt="Cultural dance performance">
-                              <div class="carousel-caption-text">
-                                  <h3>Cultural Performances</h3>
-                                  <p>Showcasing traditional dances and music</p>
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/culture/cultural6.jfif" alt="Cultural dance performance">
-                              <div class="carousel-caption-text">
-                                  <h3>Cultural Performances</h3>
-                                  <p>Showcasing traditional dances and music</p>
-                              </div>
-                          </div>
-                          <div class="carousel-slide">
-                              <img src="images/culture/cultural7.jfif" alt="Cultural dance performance">
-                              <div class="carousel-caption-text">
-                                  <h3>Cultural Performances</h3>
-                                  <p>Showcasing traditional dances and music</p>
-                              </div>
-                          </div>
-                </div>
-                <div class="carousel-nav">
-                    <button class="carousel-btn prev-btn">&lt;</button>
-                    <button class="carousel-btn next-btn">&gt;</button>
-                </div>
-                <div class="carousel-indicators">
-                    <div class="carousel-indicator active"></div>
-                    <div class="carousel-indicator"></div>
-                    <div class="carousel-indicator"></div>
-                    <div class="carousel-indicator"></div>
-                    <div class="carousel-indicator"></div>
-                    <div class="carousel-indicator"></div>
-                    <div class="carousel-indicator"></div>
-                    <div class="carousel-indicator"></div>
-                </div>
-            </div>
-              </div>
-    </div>
-</section>
+        
         <section id="contact" class="section">
             <h2 class="text-center">Contact Information</h2>
             <p class="text-center mb-xl">We'd love to hear from you. Reach out for inquiries or visit our campus.</p>
@@ -705,11 +850,6 @@
                 <p>Providing quality education that combines academic excellence with practical skills development since 2010.</p>
                 <div class="social-links">
                     <a href="https://www.facebook.com/profile.php?id=100069140122435" aria-label="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-                    <!--                     
-                    <a href="#" aria-label="Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="YouTube" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
-                     -->
                 </div>
             </div>
             
@@ -717,8 +857,9 @@
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="#welcome">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
                     <li><a href="#programs">Programs</a></li>
+                    <li><a href="#library">Library</a></li>
+                    <li><a href="#about">About Us</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
@@ -737,12 +878,12 @@
             <div class="footer-column">
                 <h3>Newsletter</h3>
                 <p>Subscribe to our newsletter for the latest updates and announcements.</p>
-                <!-- <form id="newsletter-form" action="https://formspree.io/f/mangahasjanjoshua@gmail.com" method="POST">
+                <form id="newsletter-form" action="https://formspree.io/f/mangahasjanjoshua@gmail.com" method="POST">
                     <input type="email" name="email" placeholder="Your email address" required aria-label="Email address">
                     <button type="submit">Subscribe</button>
                     <input type="hidden" name="_subject" value="New newsletter subscriber">
                     <input type="text" name="_gotcha" style="display:none">
-                </form> --> 
+                </form>
             </div>
         </div>
         
@@ -751,5 +892,236 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        
+		
+		// Initialize Swiper carousels
+        const swipers = document.querySelectorAll('.swiper');
+        swipers.forEach(swiperEl => {
+            new Swiper(swiperEl, {
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+        });
+
+        // Collection tabs functionality
+        const collectionTabs = document.querySelectorAll('.collection-tab');
+        collectionTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and contents
+                document.querySelector('.collection-tab.active').classList.remove('active');
+                document.querySelector('.collection-content.active').classList.remove('active');
+                
+                // Add active class to clicked tab and corresponding content
+                tab.classList.add('active');
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Accordion functionality
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const accordionItem = header.parentElement;
+                const accordionContent = header.nextElementSibling;
+                
+                if (header.classList.contains('active')) {
+                    header.classList.remove('active');
+                    accordionContent.style.maxHeight = null;
+                } else {
+                    // Close all other accordion items
+                    document.querySelectorAll('.accordion-header').forEach(h => {
+                        if (h !== header && h.classList.contains('active')) {
+                            h.classList.remove('active');
+                            h.nextElementSibling.style.maxHeight = null;
+                        }
+                    });
+                    
+                    header.classList.add('active');
+                    accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
+                }
+            });
+        });
+
+        // Open first accordion by default
+        document.querySelector('.accordion-header').click();
+
+        // Enhanced directions link with geolocation
+        document.getElementById('directions-link').addEventListener('click', function(e) {
+            if (e.button === 0) {
+                e.preventDefault();
+                
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                        function(position) {
+                            const lat = position.coords.latitude;
+                            const lng = position.coords.longitude;
+                            window.open(
+                                `https://maps.app.goo.gl/8PD8L7VCfyoL6Fca7`,
+                                '_blank'
+                            );
+                        },
+                        function(error) {
+                            if (error.code !== error.PERMISSION_DENIED) {
+                                console.error("Geolocation error:", error);
+                            }
+                            window.open(this.href, '_blank');
+                        }
+                    );
+                } else {
+                    window.open(this.href, '_blank');
+                }
+            }
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const navUl = document.querySelector('nav ul');
+            navUl.classList.toggle('show');
+            this.setAttribute('aria-expanded', navUl.classList.contains('show'));
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.querySelector('nav ul.show');
+                    if (mobileMenu) {
+                        mobileMenu.classList.remove('show');
+                        document.querySelector('.mobile-menu-btn').setAttribute('aria-expanded', 'false');
+                    }
+                }
+            });
+        });
+
+        // Set copyright year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Add animation class when elements come into view
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.program-card, .section').forEach(section => {
+            observer.observe(section);
+        });
+		
+				
+		document.addEventListener('DOMContentLoaded', function() {
+			// Initialize accordions
+			const accordionItems = document.querySelectorAll('.accordion-item');
+			
+			accordionItems.forEach(item => {
+				const header = item.querySelector('.accordion-header');
+				const content = item.querySelector('.accordion-content');
+				
+				// Add ARIA attributes
+				header.setAttribute('aria-expanded', 'false');
+				header.setAttribute('aria-controls', `accordion-content-${item.dataset.index}`);
+				content.setAttribute('id', `accordion-content-${item.dataset.index}`);
+				
+				// Click handler
+				header.addEventListener('click', function() {
+					toggleAccordion(item);
+				});
+				
+				// Keyboard support
+				header.addEventListener('keydown', function(e) {
+					if (e.key === 'Enter' || e.key === ' ') {
+						e.preventDefault();
+						toggleAccordion(item);
+					}
+					
+					// Arrow key navigation
+					if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+						e.preventDefault();
+						const direction = e.key === 'ArrowDown' ? 1 : -1;
+						const nextIndex = parseInt(item.dataset.index) + direction;
+						
+						if (nextIndex >= 0 && nextIndex < accordionItems.length) {
+							const nextItem = document.querySelector(`.accordion-item[data-index="${nextIndex}"]`);
+							nextItem.querySelector('.accordion-header').focus();
+						}
+					}
+				});
+			});
+			
+			// Open first accordion by default
+			if (accordionItems.length > 0) {
+				accordionItems[0].classList.add('active');
+				accordionItems[0].querySelector('.accordion-header').setAttribute('aria-expanded', 'true');
+			}
+			
+			function toggleAccordion(item) {
+				const isOpening = !item.classList.contains('active');
+				const header = item.querySelector('.accordion-header');
+				const content = item.querySelector('.accordion-content');
+				
+				// Close all other accordions if opening this one
+				if (isOpening) {
+					document.querySelectorAll('.accordion-item.active').forEach(openItem => {
+						if (openItem !== item) {
+							openItem.classList.remove('active');
+							openItem.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
+						}
+					});
+				}
+				
+				// Toggle current item
+				item.classList.toggle('active');
+				header.setAttribute('aria-expanded', item.classList.contains('active'));
+				
+				// Smooth scrolling to opened accordion (for better UX)
+				if (isOpening) {
+					setTimeout(() => {
+						item.scrollIntoView({
+							behavior: 'smooth',
+							block: 'nearest'
+						});
+					}, 100);
+				}
+			}
+			
+			// Add data-index attributes if not present
+			document.querySelectorAll('.accordion-item').forEach((item, index) => {
+				if (!item.dataset.index) {
+					item.dataset.index = index;
+				}
+			});
+		});
+    </script>
 </body>
 </html>
