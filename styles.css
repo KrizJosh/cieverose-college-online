@@ -759,54 +759,6 @@ nav a.active {
 }
 
 /* ===== Contact Section ===== */
-.contact-numbers {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-}
-
-.contact-item {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-    margin-bottom: var(--space-md);
-}
-
-.contact-link {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-xs);
-    padding: var(--space-sm) var(--space-md);
-    border-radius: var(--radius-sm);
-    transition: all var(--transition-fast);
-    text-decoration: none;
-    width: fit-content;
-}
-
-.contact-link.call {
-    background-color: var(--primary-light);
-    color: var(--primary-color);
-}
-
-.contact-link.message {
-    background-color: var(--accent-color);
-    color: var(--dark-text);
-}
-
-.contact-link:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-sm);
-    text-decoration: none;
-}
-
-.contact-link.call:hover {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-.contact-link.message:hover {
-    background-color: var(--secondary-color);
-}
 
 /* ===== Footer ===== */
 footer {
@@ -1157,4 +1109,44 @@ footer::before {
 
 .lazy.loaded {
     opacity: 1;
+}
+
+.contact-item {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: center;
+}
+
+.contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+    text-decoration: none;
+}
+
+.contact-link.call {
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+}
+
+.contact-link.message {
+    background-color: var(--accent-color);
+    color: var(--dark-text);
+}
+
+.contact-link:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.contact-link.call:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.contact-link.message:hover {
+    background-color: var(--secondary-color);
 }
