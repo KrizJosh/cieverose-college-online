@@ -1116,6 +1116,40 @@
             });
         });
 
+
+
+
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            const content = item.querySelector('.accordion-content');
+            
+            header.setAttribute('aria-expanded', 'false');
+            content.style.maxHeight = null; // Ensure all are closed
+            
+            header.addEventListener('click', function() {
+                const isOpening = !item.classList.contains('active');
+                
+                // Close all other accordions
+                if (isOpening) {
+                    document.querySelectorAll('.accordion-item.active').forEach(openItem => {
+                        openItem.classList.remove('active');
+                        openItem.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
+                        openItem.querySelector('.accordion-content').style.maxHeight = null;
+                    });
+                }
+                
+                // Toggle current item
+                item.classList.toggle('active');
+                header.setAttribute('aria-expanded', item.classList.contains('active'));
+                content.style.maxHeight = item.classList.contains('active') ? content.scrollHeight + 'px' : null;
+            });
+        });
+    });
     </script>
 </body>
 </html>
