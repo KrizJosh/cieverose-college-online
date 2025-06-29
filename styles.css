@@ -232,6 +232,42 @@
             cursor: pointer;
         }
 
+
+
+        				
+		/* ===== Mission/Vision Section ===== */
+		.mission-vision-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: var(--space-lg);
+			margin: var(--space-xl) 0;
+		}
+
+		.mission-card {
+			background: var(--card-bg);
+			padding: var(--space-lg);
+			border-radius: var(--radius-md);
+			box-shadow: var(--shadow-sm);
+			text-align: center;
+		}
+
+		.card-icon {
+			font-size: 2rem;
+			color: var(--accent-color);
+			margin-bottom: var(--space-md);
+		}
+
+		.philosophy {
+			font-style: italic;
+			background: var(--primary-light);
+			padding: var(--space-md);
+			border-radius: var(--radius-sm);
+		}
+
+
+
+
+        
         /* ===== Enhanced Hero Section ===== */
         .hero {
             background: linear-gradient(rgba(26, 95, 154, 0.8), rgba(13, 59, 102, 0.9)), 
