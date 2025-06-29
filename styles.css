@@ -266,9 +266,52 @@
 
 
 
-
-
+        
+        .program-card {
+            position: relative;
+            overflow: hidden;
+        }
+        .program-card-bg-logo {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 80px;
+            height: 80px;
+            background: url('logo.png') no-repeat;
+            background-size: contain;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        .floating-logo {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            height: 50px;
+            z-index: 1000;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        .floating-logo:hover {
+            opacity: 1;
+        }
+        .section-logo {
+            display: block;
+            margin: 0 auto 2rem;
+            height: 70px;
+        }
+        .footer-logo {
+            height: 60px;
+            margin-bottom: 1rem;
+        }
         /* ===== Enhanced Hero Section ===== */
+        .hero-logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            height: 80px;
+            width: auto;
+            z-index: 10;
+        }
         .hero h1, .hero p {
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Darker shadow for better contrast */
         }
@@ -278,6 +321,9 @@
             padding: 2rem;
             border-radius: 10px;
         }
+
+
+
         .hero {
             background: linear-gradient(rgba(26, 95, 154, 0.5), rgba(13, 59, 102, 0.6)), 
                         url('cieverose..jpg');
