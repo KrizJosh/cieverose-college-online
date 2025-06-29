@@ -279,7 +279,7 @@
             border-radius: 10px;
         }
         .hero {
-            background: linear-gradient(rgba(26, 95, 154, 0.3), rgba(13, 59, 102, 0.4)), 
+            background: linear-gradient(rgba(26, 95, 154, 0.5), rgba(13, 59, 102, 0.6)), 
                         url('cieverose..jpg');
             background-size: cover;
             background-position: center;
