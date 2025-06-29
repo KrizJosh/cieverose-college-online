@@ -862,6 +862,7 @@
             border-radius: 50%;
             margin-right: var(--space-sm);
             font-weight: bold;
+            flex-shrink: 0;
         }
 
         /* ===== Events Section ===== */
