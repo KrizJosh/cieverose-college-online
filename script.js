@@ -213,7 +213,7 @@
                             const lat = position.coords.latitude;
                             const lng = position.coords.longitude;
                             window.open(
-                                `https://www.google.com/maps/dir/?api=1&origin=${lat},${lng}&destination=Cieverose+College+Camarin+Caloocan&travelmode=driving&dir_action=navigate`,
+                                `https://maps.app.goo.gl/8PD8L7VCfyoL6Fca7`,
                                 '_blank'
                             );
                         },
