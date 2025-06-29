@@ -836,7 +836,7 @@
 
         .core-value-item {
             background: var(--primary-light);
-            padding: var(--space-sm);
+            padding: var(--space-lg);
             border-radius: var(--radius-md);
             border-left: 4px solid var(--secondary-color);
             position: relative;
