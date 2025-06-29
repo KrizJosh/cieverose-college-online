@@ -841,6 +841,7 @@
             border-left: 4px solid var(--secondary-color);
             position: relative;
             overflow: hidden;
+            transition: transform var(--transition-normal);
         }
 
         .core-value-item h4 {
