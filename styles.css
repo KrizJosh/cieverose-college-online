@@ -1362,7 +1362,115 @@
 
         
 
-        
+        /* ===== Enhanced Profile Section ===== */
+.profile-section {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; /* Align items to top */
+    gap: var(--space-xl);
+    padding: var(--space-xl);
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--section-bg) 100%);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--secondary-color);
+    position: relative;
+    overflow: hidden;
+    margin: var(--space-xl) 0;
+}
+
+.profile-logo-container {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align logo to top */
+    padding-top: 0.5em; /* Aligns with h2 baseline */
+}
+
+.profile-logo {
+    width: 180px;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    transition: transform var(--transition-normal);
+}
+
+.profile-content {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.programs.mt-lg {
+    flex: 1; /* Make programs section expand */
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+}
+
+/* Improved alignment for h2 and logo */
+.profile-content h2 {
+    margin-top: 0;
+    padding-top: 0;
+    align-self: flex-start; /* Better alignment with logo */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 992px) {
+    .profile-section {
+        gap: var(--space-lg);
+        padding: var(--space-lg);
+    }
+    
+    .profile-logo {
+        width: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-section {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    
+    .profile-logo-container {
+        margin-bottom: var(--space-md);
+        padding-top: 0;
+        align-items: center;
+    }
+    
+    .profile-content h2 {
+        align-self: center;
+    }
+    
+    .profile-content {
+        align-items: center;
+        text-align: center;
+    }
+    
+    .programs.mt-lg {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-section {
+        padding: var(--space-md);
+    }
+    
+    .profile-logo {
+        width: 120px;
+    }
+    
+    .programs.mt-lg {
+        gap: var(--space-md);
+    }
+}
+
+
 
 
 
