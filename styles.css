@@ -1252,11 +1252,77 @@
 
 
 
+                /* Profile Section Layout */
+        .profile-section {
+            display: flex;
+            align-items: flex-start;
+            text-align: left;
+            padding: var(--space-xl);
+            gap: var(--space-xl); /* Add gap between logo and content */
+        }
+
+        .profile-logo-container {
+            flex: 0 0 200px; /* Fixed width for logo */
+            position: relative;
+            display: flex;
+            justify-content: flex-end; /* Align logo to the right */
+        }
+
+        .profile-logo {
+            width: 100%;
+            height: auto;
+            max-width: 180px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+        }
+
+        .profile-content {
+            flex: 1; /* Takes remaining space */
+        }
+
+        /* For the library section, we'll add a new class */
+        .library-header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Align logo to the left */
+            gap: var(--space-lg);
+            margin-bottom: var(--space-xl);
+        }
+
+        .library-logo {
+            height: 70px;
+            width: auto;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .profile-section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .profile-logo-container {
+                justify-content: center; /* Center logo on mobile */
+                margin-bottom: var(--space-lg);
+            }
+            
+            .profile-logo {
+                max-width: 120px;
+            }
+            
+            .library-header {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+
         /* Profile Section Layout */
         .profile-section {
             display: flex;
             align-items: flex-start;
-            text-align: center;
+            text-align: left;
             padding: var(--space-xl);
         }
 
