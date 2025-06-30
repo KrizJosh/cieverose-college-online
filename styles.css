@@ -1360,117 +1360,84 @@
 
 
 
-        
-
-        /* ===== Enhanced Profile Section ===== */
+        /* ===== Profile Section with Logo ===== */
 .profile-section {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start; /* Align items to top */
-    gap: var(--space-xl);
+    position: relative;
+    text-align: center;
     padding: var(--space-xl);
     background: linear-gradient(135deg, var(--primary-light) 0%, var(--section-bg) 100%);
     border-radius: var(--radius-md);
     border-left: 4px solid var(--secondary-color);
-    position: relative;
-    overflow: hidden;
     margin: var(--space-xl) 0;
 }
 
-.profile-logo-container {
-    flex: 0 0 auto;
+.profile-section-logo {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    background: var(--card-bg);
+    border-radius: var(--radius-round);
+    padding: var(--space-sm);
+    box-shadow: var(--shadow-md);
     display: flex;
+    align-items: center;
     justify-content: center;
-    align-items: flex-start; /* Align logo to top */
-    padding-top: 0.5em; /* Aligns with h2 baseline */
+    z-index: 1;
 }
 
-.profile-logo {
-    width: 180px;
+.profile-section-logo img {
+    width: 100%;
     height: auto;
-    max-width: 100%;
+    max-width: 60px;
     object-fit: contain;
-    transition: transform var(--transition-normal);
 }
 
 .profile-content {
-    flex: 1;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+    margin-top: var(--space-md);
 }
 
-.programs.mt-lg {
-    flex: 1; /* Make programs section expand */
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-lg);
-    margin-top: var(--space-lg);
+/* Adjust spacing for logo */
+.profile-section h2 {
+    padding-top: var(--space-lg);
 }
 
-/* Improved alignment for h2 and logo */
-.profile-content h2 {
-    margin-top: 0;
-    padding-top: 0;
-    align-self: flex-start; /* Better alignment with logo */
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 992px) {
-    .profile-section {
-        gap: var(--space-lg);
-        padding: var(--space-lg);
-    }
-    
-    .profile-logo {
-        width: 150px;
-    }
-}
-
+/* Responsive adjustments */
 @media (max-width: 768px) {
-    .profile-section {
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
+    .profile-section-logo {
+        width: 70px;
+        height: 70px;
+        top: -25px;
     }
     
-    .profile-logo-container {
-        margin-bottom: var(--space-md);
-        padding-top: 0;
-        align-items: center;
+    .profile-section-logo img {
+        max-width: 50px;
     }
     
-    .profile-content h2 {
-        align-self: center;
-    }
-    
-    .profile-content {
-        align-items: center;
-        text-align: center;
-    }
-    
-    .programs.mt-lg {
-        grid-template-columns: 1fr;
+    .profile-section h2 {
+        padding-top: var(--space-md);
     }
 }
 
 @media (max-width: 480px) {
     .profile-section {
-        padding: var(--space-md);
+        padding: var(--space-lg) var(--space-md);
     }
     
-    .profile-logo {
-        width: 120px;
+    .profile-section-logo {
+        width: 60px;
+        height: 60px;
+        top: -20px;
     }
     
-    .programs.mt-lg {
-        gap: var(--space-md);
+    .profile-section-logo img {
+        max-width: 40px;
     }
 }
 
-
+        
 
 
 
